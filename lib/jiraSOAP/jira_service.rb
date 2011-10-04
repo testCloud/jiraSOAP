@@ -54,6 +54,17 @@ class JIRA::JIRAService < Handsoap::Service
   end
 
 
+  @@http_username = ""
+  def self.http_username=(username)
+    @@http_username = username
+  end
+
+  @@http_password = ""
+  def self.http_password=(password)
+    @@http_password = password
+  end
+
+
   protected
 
   ##
@@ -66,6 +77,10 @@ class JIRA::JIRAService < Handsoap::Service
   # Make sure that the required namespace is added
   def on_response_document doc
     doc.add_namespace 'jir', @endpoint_url
+  end
+
+  def on_after_create_http_request(http_request)
+    http_request.set_auth @@http_username, @@http_password  if @@http_username || @@http_password
   end
 
 end
