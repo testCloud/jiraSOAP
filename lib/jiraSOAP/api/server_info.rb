@@ -15,4 +15,9 @@ module JIRA::RemoteAPI
     JIRA::ServerConfiguration.new_with_xml jira_call( 'getConfiguration' )
   end
 
+
+  def security_levels(project_key)
+    array_jira_call JIRA::SecurityLevel, 'getSecurityLevels', project_key
+  end
+
 end

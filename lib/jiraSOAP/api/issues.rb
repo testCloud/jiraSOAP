@@ -100,6 +100,13 @@ module JIRA::RemoteAPI
   def create_issue_with_issue issue
     JIRA::Issue.new_with_xml jira_call( 'createIssue', issue )
   end
+  
+  # @param [JIRA::Issue] issue
+  # @param [Fixnum] security_level
+  # @return [JIRA::Issue]
+  def create_issue_with_security_level issue, security_level
+    JIRA::Issue.new_with_xml jira_call( 'createIssueWithSecurityLevel', issue, security_level )
+  end
 
   # @param [String] issue_key
   # @return [JIRA::Issue]

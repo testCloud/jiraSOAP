@@ -39,5 +39,6 @@ require 'jiraSOAP/entities/issue'
 require 'jiraSOAP/entities/time_info'
 require 'jiraSOAP/entities/server_info'
 require 'jiraSOAP/entities/server_configuration'
+require 'jiraSOAP/entities/security_level'
 
 require 'jiraSOAP/entities/worklog'

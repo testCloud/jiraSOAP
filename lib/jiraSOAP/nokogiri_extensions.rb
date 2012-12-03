@@ -44,6 +44,9 @@ class Nokogiri::XML::Element
   # @return [Array(String,String,String),nil]
   def to_color_triple
     return if (temp = content).empty?
+    temp = '#FF0000'  if temp == '#red'
+    temp = '#00FF00'  if temp == '#green'
+    temp = '#0000FF'  if temp == '#blue'
     temp.match(/#(..)(..)(..)/).captures
   end
   alias_method :to_colour_triple, :to_color_triple
